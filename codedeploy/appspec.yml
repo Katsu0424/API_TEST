@@ -17,3 +17,7 @@ permissions:
     mode: 444
     type:
       - file
+hooks:
+  ApplicationStart:
+    - location: backendProject-restart.sh
+      timeout: 300

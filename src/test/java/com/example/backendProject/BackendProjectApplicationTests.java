@@ -29,7 +29,7 @@ class BackendProjectApplicationTests {
 		// 結果を検証するためのクラスを生成して、期待値をセット
 		SampleDTO sample = new SampleDTO();
 		sample.setId(100);
-		sample.setName("taro");
+		sample.setName("jiro");
 
 		// 「/hello」パスのAPIを実行してレスポンスを検証
 		this.mockMvc.perform(MockMvcRequestBuilders.get("/hello"))

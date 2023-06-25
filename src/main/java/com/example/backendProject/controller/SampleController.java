@@ -12,10 +12,8 @@ public class SampleController {
     public SampleDTO hello() {
         SampleDTO sample = new SampleDTO();
         sample.setId(100);
-        sample.setName("taro");
+        sample.setName("jiro");
 
-        System.out.println("チェック");
-        System.out.println(sample);
         return sample;
     }
 }

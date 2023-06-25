@@ -51,6 +51,7 @@ phases:
       - mkdir artifacts
       - cp target/backendProject-0.0.1-SNAPSHOT.jar artifacts
       - cp codedeploy/appspec.yml artifacts
+      - cp deploy/backendProject-restart.sh artifacts
 
       - echo finish post build.
 
@@ -59,5 +60,6 @@ artifacts:
   files:
     - backendProject-0.0.1-SNAPSHOT.jar
     - appspec.yml
+    - backendProject-restart.sh
   # ベースディレクトリ
   base-directory: artifacts
