@@ -14,5 +14,16 @@
 5. Code Deployの指示を受け、EC2にてCodeDeploy AgentがS3から資材を取得し、デプロイ
 <br>
 
+## 主要ファイル
+- buildspec.yml
+  - ビルドの仕様を記載したYaml形式のファイル。実行するLinuxのコマンドやS3にアップロードするファイルパスなどを記述。
+
+- cddedeploy/appspec.yml
+  - デプロイの仕様を記載したYaml形式のファイル。S3から取得したモジュールの配置場所、各フェーズで実行する処理を記述。
+
+- deploy/backendProject-restart.sh
+  - アプリケーションをSystemdサービスとして常駐させるためのシェルスクリプト。デプロイ時、モジュールを配置後にサービスを再起動させる。
+<br>
+
 ### 参考<br>
 [Spring Bootを使ったWebAPIの作成]([https://www.google.co.jp/](https://zenn.dev/ryo7/articles/dev-app-by-spring-boot)https://zenn.dev/ryo7/articles/dev-app-by-spring-boot/)
