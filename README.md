@@ -26,4 +26,4 @@
 <br>
 
 ### 参考<br>
-[Spring Bootを使ったWebAPIの作成]([https://www.google.co.jp/](https://zenn.dev/ryo7/articles/dev-app-by-spring-boot)https://zenn.dev/ryo7/articles/dev-app-by-spring-boot/)
+[Spring Bootを使ったWebAPIの作成](https://zenn.dev/ryo7/articles/dev-app-by-spring-boot/)
