@@ -5,16 +5,20 @@
 <br>
 
 ## 構成図
-![image](https://github.com/Katsu0424/API_TEST/assets/69413292/05f4c4fc-a629-469f-b06e-e100cc57f2b9)
-<br>
-1. Gitにpush
-2. Code Pipelineの設定で対象のGithubリポジトリ+ブランチを監視し、Code Buildスタート
-3. Code Buildでビルドしたjar+αをS3にput
-4. Code Deployスタート
-5. Code Deployの指示を受け、EC2にてCodeDeploy AgentがS3から資材を取得し、デプロイ
+![image](https://github.com/Katsu0424/API_TEST/assets/69413292/d12ba239-63c0-457c-9a3a-cfaaa193c906)
+
+
+1. GitHubにpush
+2. Code Pipelineの設定で対象リポジトリ内のブランチ変更を検知
+3. GitHubに資材を取りに行く
+4. Code Pipelineを介してCode Buildスタート
+5. Code Buildでビルドしたjar+αをS3にput
+6. Code Deployスタート
+7. Code Deployの指示を受け、EC2(Codedeploy Agent)で処理実行
+8. EC2にてCodeDeploy AgentがS3から資材を取得し、デプロイ
 <br>
 
-## 主要ファイル
+## CI/CDに用いた主要ファイル
 - buildspec.yml
   - ビルドの仕様を記載したYaml形式のファイル。実行するLinuxのコマンドやS3にアップロードするファイルパスなどを記述。
 
