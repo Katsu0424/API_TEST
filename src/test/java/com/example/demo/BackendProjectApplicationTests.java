@@ -1,6 +1,6 @@
-package com.example.backendProject;
+package com.example.demo;
 
-import com.example.backendProject.dto.SampleDTO;
+import com.example.demo.dto.SampleDTO;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
