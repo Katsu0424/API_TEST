@@ -1,0 +1,39 @@
+version: '3.9'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/mydb?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=Asia/Tokyo
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: password
+    ports:
+      - "8080:8080"
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - app-net
+  db:
+    build:
+      context: ./dockerfile-for-db
+      dockerfile: Dockerfile
+    environment:
+      MYSQL_DATABASE: mydb
+      MYSQL_ROOT_PASSWORD: password
+      TZ: Asia/Tokyo
+    volumes:
+      - ./dockerfile-for-db/data:/var/lib/mysql
+    restart: always
+    ports:
+      - "3306:3306"
+    networks:
+      - app-net
+    healthcheck:
+      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+networks:
+  app-net:
+    driver: bridge
