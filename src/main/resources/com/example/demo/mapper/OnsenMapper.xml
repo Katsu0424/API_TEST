@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.OnsenMapper">
+
+    <select id="selectOnsen" resultType="com.example.demo.entity.Onsen">
+        select
+            o.onsen_name,
+            o.visited_at,
+            t.type,
+            a.area_name,
+            p.prefectures_name
+        from
+            t_onsen o
+        inner join m_type t on
+            o.type_id = t.type_id
+        inner join m_prefectures p on
+            o.prefectures_id = p.prefectures_id
+        inner join m_area a on
+            p.area_id = a.area_id
+        <where>
+            o.onsen_name = #{onsenName}
+        </where>
+    </select>
+</mapper>
