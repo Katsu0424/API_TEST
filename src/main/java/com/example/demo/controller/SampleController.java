@@ -1,27 +1,29 @@
 package com.example.demo.controller;
 
-import com.example.demo.service.TestService;
+import com.example.demo.entity.Onsen;
+import com.example.demo.service.OnsenService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
 public class SampleController {
 
-    private final TestService testService;
+    // サービスクラス
+    private final OnsenService onsenService;
 
-    @RequestMapping("/hello")
-    public String hello() {
-//        SampleDTO sample = new SampleDTO();
-//        sample.setId(100);
-//        sample.setName("jiro");
+    @GetMapping("/onsen/{onsenName}")
+    public ResponseEntity<Onsen> getOnsenInfo(@PathVariable String onsenName) {
 
-        List<String> typeList = testService.selectTypeList();
-        System.out.println(typeList);
+        Onsen onsenList = onsenService.selectOnsen(onsenName);
 
-        return "";
+        return ResponseEntity.ok()
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(onsenList);
     }
 }
