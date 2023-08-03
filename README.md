@@ -23,4 +23,5 @@ http://localhost:8080/onsen/{温泉名}
 <br><br>
 
 ## 過去バージョンをoldフォルダで管理
-- 現在のバージョン：v2
+- [v1](https://github.com/Katsu0424/API_TEST/blob/master/old/README_v1.md)
+- v2 ← now!
