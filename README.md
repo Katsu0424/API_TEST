@@ -5,7 +5,7 @@
 ## 起動方法
 1. 本プロジェクトをクローン
 ```
-git clone https://github.com/Katsu0424/API_TEST/tree/master
+git clone https://github.com/Katsu0424/API_TEST.git
 ```
 2. プロジェクトのルートディレクトリに移動
 3. ビルド実行
